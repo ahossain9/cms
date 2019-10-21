@@ -4,8 +4,6 @@ include("includes/header.php");
 include("includes/navigation.php");
 ?>
 
-
-This is test
 <!-- Page Content -->
 <div class="container">
 
