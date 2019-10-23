@@ -28,6 +28,9 @@
                     }
 
                 ?>
+                <li>
+                    <a href="admin/index.php">Admin</a>
+                </li>
 <!--
                 <li>
                     <a href="#">About</a>
