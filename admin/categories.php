@@ -11,14 +11,33 @@
                             Blank Page
                             <small>Subheading</small>
                         </h1>
-                        <ol class="breadcrumb">
-                            <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
-                            </li>
-                            <li class="active">
-                                <i class="fa fa-file"></i> Blank Page
-                            </li>
-                        </ol>
+                    </div>
+                    <div class="col-sm-6">
+                        <form action="/action_page.php">
+                            <div class="form-group">
+                                <label for="cat-title">Add Category:</label>
+                                <input type="password" class="form-control" name="cat-title" id="pwd">
+                            </div>
+                            <button type="submit" class="btn btn-primary" name="submit">Add</button>
+                        </form>
+                    </div>
+                    <div class="col-sm-6">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Category Title</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Baseball Category</td>
+                                </tr>
+                                <tr>
+                                    <td>Baseball Category</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
                 <!-- /.row -->
