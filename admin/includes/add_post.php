@@ -14,6 +14,16 @@
             $post_date = date('d-m-y');
         
             move_uploaded_file($post_image_temp, "../images/$post_image");
+
+            $query = "INSERT INTO posts(post_category_id, post_title, post_author, post_date, post_image, post_content, post_tags,post_comment_count, post_status)";
+
+            $query .=
+            "VALUES('{$post_category_id}', '{$post_title}', '{$post_author}', now(), '{$post_image}','{$post_content}','{$post_tags}', '{$post_comment_count}', '{$post_status}')";
+
+            $create_post_query = mysqli_query($connection, $query);
+            if(!$create_post_query){
+                die("QUERY FAILED" . mysqli_error($connection));
+            } 
         }
         ?>
 
