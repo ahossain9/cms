@@ -13,7 +13,7 @@
                     </h1>
                 </div>
 
-                <div class="col-sm-6">
+                <div class="col-sm-12">
                     <?php
                         if(isset($_GET['source'])){
                             $source = $_GET['source'];
@@ -27,7 +27,7 @@
                                 break;
                                 
                             default:
-                                include "includes/view-all-posts.php";
+                                include "includes/view_all_posts.php";
                                 break;
                         }
                     ?>
