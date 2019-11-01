@@ -28,16 +28,35 @@ if(isset($_GET['p_id'])){
             <input type="text" class="form-control" value="<?php echo $post_title; ?>" name="post_title">
         </div>
         <div class="form-group">
-            <label for="post_category_id">Post Categoty Id</label>
-            <input type="text" class="form-control" value="<?php echo $post_category_id; ?>"  name="post_category_id">
+        <label for="">Category</label>
+            <select name="post_category" id="" class="form-control">
+                <?php
+                    global $connection;
+                    // Select all data from categories
+                    $query = "SELECT * FROM categories";
+                    // Connect data for getting data from categories
+                    $select_categories = mysqli_query($connection, $query);
+
+                    confirmQuery($select_categories);
+
+                    // Fetch the category from categories table by associative array
+                    while ($row = mysqli_fetch_assoc($select_categories)) {
+                        $cat_id = $row["cat_id"];
+                        $cat_title = $row['cat_title'];
+
+                        echo "<option value='{$cat_id}'>{$cat_title}</option>";
+                    }
+        
+                ?>
+            </select>
         </div>
         <div class="form-group">
             <label for="post_author">Post Author</label>
             <input type="text" class="form-control" value="<?php echo $post_author; ?>" name="post_author">
         </div>
         <div class="form-group">
-            <label for="post_image">Post Image</label>
-            <input type="file" class="form-control" name="post_image">
+            <img src="../images/<?php echo $post_image; ?>" alt="<?php echo $post_title; ?>" width="100">
+            <input type="file" name="image" class="form-control">
         </div>
         <div class="form-group">
             <label for="post_status">Post Status</label>
