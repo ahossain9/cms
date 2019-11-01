@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include "../includes/db.php";?>
+<?php
+    // Connect DB
+    include "../includes/db.php";
+    
+    // Connect functions.php file
+    include("functions.php");
+    ?>
 <head>
 
     <meta charset="utf-8">

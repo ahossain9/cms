@@ -14,23 +14,26 @@
                 </div>
 
                 <div class="col-sm-12">
-                    <?php
-                        if(isset($_GET['source'])){
+                    <?php 
+                        //Check the source if avaible.
+                        if (isset($_GET['source'])) {
                             $source = $_GET['source'];
-                        } else{
-                            $source = '';
+                        } else {
+                            $source = "";
                         }
-                    
-                        switch($source){
+                        //Include the page based on condition technique
+                        switch ($source) {
                             case 'add_post':
-                                include "includes/add_post.php";
+                                include ("includes/add_post.php");
                                 break;
-                                
+                            case 'edit_post':
+                                include ("includes/edit_post.php");
                             default:
-                                include "includes/view_all_posts.php";
+                                include ("includes/view_all_posts.php");
                                 break;
                         }
-                    ?>
+                        
+                    ?> 
                 </div>
             </div>
             <!-- /.row -->
