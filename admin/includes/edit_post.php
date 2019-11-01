@@ -1,43 +1,39 @@
 <?php
-    if(isset($_POST['create_post'])){
-        $post_author = $_POST['post_author'];
-        $post_title = $_POST['post_title'];
-        $post_category_id = $_POST['post_category_id'];
-        $post_status = $_POST['post_status'];
-        $post_image = $_FILES['post_image']['name'];
-        $post_image_temp = $_FILES['post_image']['tmp_name'];
-        $post_tags = $_POST['post_tags'];
-        $post_content = $_POST['post_content'];
-        $post_comment_count = 4;
-        $post_date = date('d-m-y');
-    
-        move_uploaded_file($post_image_temp, "../images/$post_image");
+if(isset($_GET['p_id'])){
+    $the_post_id = $_GET['p_id']; 
+}
+        $query = "SELECT * FROM posts";
+        $select_posts_by_id = mysqli_query($connection, $query);
 
-        $query = "INSERT INTO posts(post_category_id, post_title, post_author, post_date, post_image, post_content, post_tags,post_comment_count, post_status)";
+        while($row = mysqli_fetch_assoc($select_posts_by_id)){
+            $post_id = $row['post_id'];
+            $post_author = $row['post_author'];
+            $post_title = $row['post_title'];
+            $post_category_id = $row['post_category_id'];
+            $post_status = $row['post_status'];
+            $post_image = $row['post_image'];
+            $post_tags = $row['post_tags'];
+            $post_content = $row['post_content'];
+            $post_comment_count = $row['post_comment_count'];
+            $post_date = $row['post_date'];
 
-        $query .=
-        "VALUES('{$post_category_id}', '{$post_title}', '{$post_author}', now(), '{$post_image}','{$post_content}','{$post_tags}', '{$post_comment_count}', '{$post_status}')";
-
-        $create_post_query = mysqli_query($connection, $query);
-        if(!$create_post_query){
-            die("QUERY FAILED" . mysqli_error($connection));
-        } 
+        }
         
-    }
+
     ?>
 
     <form action="" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label for="post_title">Post Title</label>
-            <input type="text" class="form-control" name="post_title">
+            <input type="text" class="form-control" value="<?php echo $post_title; ?>" name="post_title">
         </div>
         <div class="form-group">
             <label for="post_category_id">Post Categoty Id</label>
-            <input type="text" class="form-control" name="post_category_id">
+            <input type="text" class="form-control" value="<?php echo $post_category_id; ?>"  name="post_category_id">
         </div>
         <div class="form-group">
             <label for="post_author">Post Author</label>
-            <input type="text" class="form-control" name="post_author">
+            <input type="text" class="form-control" value="<?php echo $post_author; ?>" name="post_author">
         </div>
         <div class="form-group">
             <label for="post_image">Post Image</label>
@@ -45,16 +41,16 @@
         </div>
         <div class="form-group">
             <label for="post_status">Post Status</label>
-            <input type="text" class="form-control" name="post_status">
+            <input type="text" class="form-control" value="<?php echo $post_status; ?>" name="post_status">
         </div>
         <div class="form-group">
             <label for="post_tags">Post Tags</label>
-            <input type="text" class="form-control" name="post_tags">
+            <input type="text" class="form-control" value="<?php echo $post_tags; ?>" name="post_tags">
         </div>
         <div class="form-group">
             <label for="post_content">Post Content</label>
-            <textarea type="text" class="form-control" name="post_content" cols="30" rows="10"></textarea>
+            <textarea type="text" class="form-control" name="post_content" cols="30" rows="10"><?php echo $post_content; ?></textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary" name="create_post">Submit</button>
+        <button type="submit" class="btn btn-primary" name="update_post">Update Post</button>
     </form>
