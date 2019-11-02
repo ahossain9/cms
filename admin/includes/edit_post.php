@@ -61,7 +61,7 @@ if(isset($_GET['p_id'])){
             <input type="text" class="form-control" value="<?php echo $post_title; ?>" name="post_title">
         </div>
         <div class="form-group">
-        <label for="">Category</label>
+            <label for="">Category</label>
             <select name="post_category" id="" class="form-control">
                 <?php
                     global $connection;
