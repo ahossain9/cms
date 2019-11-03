@@ -24,7 +24,7 @@
             $post_id = $row['post_id'];
             $post_author = $row['post_author'];
             $post_title = $row['post_title'];
-            $post_category_id = $row['post_category_id'];
+            $post_category = $row['post_category_id'];
             $post_status = $row['post_status'];
             $post_image = $row['post_image'];
             $post_tags = $row['post_tags'];
@@ -32,7 +32,7 @@
             $post_date = $row['post_date'];
 
             // Select all data from categories
-            $query = "SELECT * FROM categories WHERE cat_id = $post_category_id";
+            $query = "SELECT * FROM categories WHERE cat_id = $post_category";
             // Connect data for getting data from categories
             $select_categories = mysqli_query($connection, $query);
 

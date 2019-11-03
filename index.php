@@ -70,5 +70,5 @@
     <!-- /.row -->
 
     <hr>
-    <?php 
+<?php 
 include "includes/header.php";

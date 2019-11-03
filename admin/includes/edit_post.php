@@ -17,7 +17,6 @@ if(isset($_GET['p_id'])){
             $post_content = $row['post_content'];
             $post_comment_count = $row['post_comment_count'];
             $post_date = $row['post_date'];
-
         }
 
         // Validate the post update fields
